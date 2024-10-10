@@ -1,16 +1,12 @@
-import boto3
 from botocore.exceptions import NoCredentialsError
+
+import boto3
 import sys
 import os
-
-# Suponha que você tenha uma variável de ambiente chamada "MINHA_VARIAVEL"
-# Você pode acessar seu valor usando a função os.environ.get()
-
 
 class S3Client:
 
     def __init__(self):
-        
         self._envs = {
             "aws_access_key_id": os.environ.get("AWS_ACCESS_KEY_ID"),
             "aws_secret_access_key": os.environ.get("AWS_SECRET_ACCESS_KEY"),

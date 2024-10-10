@@ -1,4 +1,4 @@
-from datasource.api import APICollector
+from classes.APIColector import APICollector
 from contracts.schema import CompraSchema
 from tools.aws.client import S3Client
 
@@ -8,14 +8,11 @@ import schedule
 schema = CompraSchema
 aws = S3Client()
 
-
-def apiCollector(schema, aws, repeat):
-    reponse = APICollector(schema, aws).start(repeat)
-    print('Executei')
-    return
+def apiCollector(schema, aws, num):
+    APICollector(schema, aws).start(num)
+    print('Dado Coletado e armazenado na AWS.')
 
 schedule.every(1).minutes.do(apiCollector,schema, aws, 50)
-
 
 while True:
     schedule.run_pending()

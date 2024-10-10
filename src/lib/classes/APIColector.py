@@ -1,17 +1,17 @@
-import requests
-import pandas as pd
-import datetime
 from io import BytesIO
 from contracts.schema import GenericSchema
 from typing import List
 from tools.retry import retry
+
+import requests
+import pandas as pd
+import datetime
 
 class APICollector:
         def __init__ (self, schema, aws): 
             self._schema = schema
             self._aws = aws
             self._buffer = None
-            return
         
         def start(self, param):
             response = self.getData(param)

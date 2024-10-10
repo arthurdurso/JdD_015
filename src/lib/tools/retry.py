@@ -1,5 +1,6 @@
-import time
 from functools import wraps
+
+import time
 
 def retry(exception_to_check, tries=3, delay=1, backoff=2):
     """
