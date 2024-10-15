@@ -1,4 +1,4 @@
-from classes.APIColector import APICollector
+from lib.classes.APICollector import APICollector
 from contracts.schema import CompraSchema
 from tools.aws.client import S3Client
 
